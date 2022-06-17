@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap" rel="stylesheet">
+    <title>Pixel Art</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+
+<body>
+    <section class="container">
+        <div class="options">
+            <div class="option-wrapper">
+                <div class="slider">
+                    <label for="width-range">Width</label>
+                    <input type="range" name="width-range" id="width-range">
+                    <span class="width-value">0</span>
+                </div>
+                <div class="slider">
+                    <label for="height-range">Height</label>
+                    <input type="range" name="height-range" id="height-range">
+                    <span class="height-value">0</span>
+                </div>
+            </div>
+
+            <div class="option-wrapper">
+                <button id="submit-grid">Create</button>
+                <button id="clear-gid">Clear</button>
+                <input type="color" name="color" id="color">
+                <button id="erase-btn">Erase</button>
+                <button id="paint-btn">Paint</button>
+            </div>
+
+            <div  class="option-wrapper" style="display:none";>
+                <!-- Testar as cores-->
+            </div>
+            
+        </div>
+        <div class="grid"></div>
+    </section>
+
+    <script src="/assets/js/script.js"></script>
+</body>
+
+</html>
