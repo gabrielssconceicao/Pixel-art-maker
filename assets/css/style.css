@@ -12,17 +12,17 @@ body{
 
 .container{
    background-color: #fff;width: 60vw;
-   position: absolute;
-   transform: translate(-50%, -50%);
-   top:50%;
-   left: 50%;
+   width: 100vw;
    padding: 40px 20px;
-   border-radius: 10px;
    display: flex;
+   flex-direction: column;
+
 }
 
 .options{
-    width: inherit;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 label{
@@ -41,6 +41,10 @@ span{
     margin-bottom: 20px;
     gap: 10px;
 }
+ .option-values{
+    width: 80%;
+    align-self: center;
+ }
 
 .option-wrapper button{
     flex: 1;
@@ -71,11 +75,18 @@ input[type="color"]::-moz-color-swatch{
     border: 2px solid #000;
 }
 
+.grid{
+    max-width: 100%;
+    width: fit-content;
+    border: 1px solid #000;
+}
+
 .gridCol{
-    height: 1em;
-    width: 1em;
-    border: 1px solid #ddd;
+    height: 1rem;
+    width: 1rem;
+    border: 1px solid #000;
 }
 .gridRow{
     display: flex;
 }
+
