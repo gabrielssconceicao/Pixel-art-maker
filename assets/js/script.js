@@ -3,8 +3,14 @@ const widthRange = document.querySelector("#width-range");
 const heightRange = document.querySelector("#height-range");
 const widthValue = document.querySelector(".width-value");
 const heightValue = document.querySelector(".height-value");
+const chooseColor = document.querySelector(".color-list")
 
-const color = document.querySelector("#color")
+
+const colorList = document.querySelectorAll(".color");
+const addColor = document.querySelector('#add-color');
+let color;
+
+
 const btnCreate = document.querySelector("#create-grid");
 const btnClear = document.querySelector("#clear-grid");
 const btnErase = document.querySelector("#erase-btn");
@@ -49,6 +55,7 @@ heightRange.addEventListener('input', (e) => {
 
 btnClear.addEventListener('click', () => {
     container.innerHTML = "";
+    container.style.display = 'none'
 })
 
 
@@ -84,7 +91,7 @@ btnCreate.addEventListener('click', () => {
                 if (erase) {
                     col.style.backgroundColor = "transparent"
                 } else {
-                    col.style.backgroundColor = color.value;
+                    col.style.backgroundColor = color;
                 }
             });
 
@@ -106,7 +113,8 @@ btnCreate.addEventListener('click', () => {
             row.appendChild(col);
 
         }
-        container.appendChild(row)
+        container.appendChild(row);
+        container.style.display = "block";
     }
 })
 
@@ -116,7 +124,7 @@ function checker(elementId){
     gridColmuns.forEach((element) =>{
         if(elementId == element.id){
             if(paint && !erase){
-                element.style.backgroundColor = color.value;
+                element.style.backgroundColor = color;
             } else if(paint && erase){
                 element.style.backgroundColor = 'transparent'
             }
@@ -124,5 +132,23 @@ function checker(elementId){
     })
 }
 
+chooseColor.addEventListener('click', e=>{
+    colorList.forEach(el => el.classList.remove('selected'))
+    const choosedColor = e.target;
+    if(choosedColor.classList.contains('color')){
+        e.target.classList.add('selected')
+        color = choosedColor.style.backgroundColor;
+    }
+})
+
+addColor.addEventListener("click", ()=>{
+    document.querySelector(".add-new-color").style.display = "block"
+})
+
 
 isTouchDevice()
+
+
+console.log(colorList)
+
+

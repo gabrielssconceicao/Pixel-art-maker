@@ -29,13 +29,19 @@
             <div class="option-wrapper">
                 <button id="create-grid">Create</button>
                 <button id="clear-grid">Clear</button>
-                <input type="color" name="color" id="color">
+                <!--<input type="color" name="color" id="color">-->
                 <button id="erase-btn">Erase</button>
                 <button id="paint-btn">Paint</button>
             </div>
 
-            <div  class="option-wrapper" style="display:none";>
-                <!-- Testar as cores-->
+            <div  class="color-chooser">
+                <div class="color-list">
+                    <div class="color" style="background-color: #f00;"></div>
+                    <div class="color" style="background-color: #0f0;"></div>
+                    <div class="color" style="background-color: #00f;"></div>
+                    <div class="color" style="background-color: #ffa500;"></div>
+                </div>
+                <div id="add-color"><span>+</span></div>
             </div>
             
         </div>
@@ -43,6 +49,12 @@
         <div class="grid"></div>
 
     </section>
+
+    <div class="add-new-color">
+        <div class="color-selector">
+            
+        </div>
+    </div>
 
     <script src="/assets/js/script.js"></script>
 </body>
