@@ -6,7 +6,7 @@ const heightValue = document.querySelector(".height-value");
 const chooseColor = document.querySelector(".color-list")
 
 
-const colorList = document.querySelectorAll(".color");
+
 const addColor = document.querySelector('#add-color');
 let color;
 
@@ -63,7 +63,7 @@ btnErase.addEventListener('click', () => {
     erase = true
 });
 
-btnPaint.addEventListener('click', ()=>{
+btnPaint.addEventListener('click', () => {
     erase = false;
 })
 
@@ -95,7 +95,7 @@ btnCreate.addEventListener('click', () => {
                 }
             });
 
-            col.addEventListener(events[deviceType].move, (e)=>{
+            col.addEventListener(events[deviceType].move, (e) => {
                 //elementFromPoint -> retorna o elemento na posição x,y do mouse 
                 let elementId = document.elementFromPoint(
                     !isTouchDevice() ? e.clientX : e.touch[0].clientX,
@@ -106,7 +106,7 @@ btnCreate.addEventListener('click', () => {
                 checker(elementId)
             })
 
-            col.addEventListener(events[deviceType].up, ()=>{
+            col.addEventListener(events[deviceType].up, () => {
                 paint = false;
             })
 
@@ -118,37 +118,63 @@ btnCreate.addEventListener('click', () => {
     }
 })
 
-function checker(elementId){
+function checker(elementId) {
     let gridColmuns = document.querySelectorAll(".gridCol");
 
-    gridColmuns.forEach((element) =>{
-        if(elementId == element.id){
-            if(paint && !erase){
+    gridColmuns.forEach((element) => {
+        if (elementId == element.id) {
+            if (paint && !erase) {
                 element.style.backgroundColor = color;
-            } else if(paint && erase){
+            } else if (paint && erase) {
                 element.style.backgroundColor = 'transparent'
             }
         }
     })
 }
 
-chooseColor.addEventListener('click', e=>{
+chooseColor.addEventListener('click', e => {
+    const colorList = document.querySelectorAll(".color");
     colorList.forEach(el => el.classList.remove('selected'))
     const choosedColor = e.target;
-    if(choosedColor.classList.contains('color')){
+    if (choosedColor.classList.contains('color')) {
         e.target.classList.add('selected')
         color = choosedColor.style.backgroundColor;
     }
 })
 
-addColor.addEventListener("click", ()=>{
-    document.querySelector(".add-new-color").style.display = "block"
+addColor.addEventListener("click", () => {
+    const addNewColor = document.querySelector(".add-new-color")
+    addNewColor.style.display = "block";
+
+    document.querySelector(".closer").addEventListener("click", () => {
+        addNewColor.style.display = "none";
+    });
+
+    const createColor = document.querySelector("#create-color");
+    const display = document.querySelector(".display");
+    const R = document.querySelector("#R");
+    const G = document.querySelector("#G");
+    const B = document.querySelector("#B");
+
+
+    const colorSlider = document.querySelector(".color-slider");
+    colorSlider.addEventListener("mouseover", e => {
+        const el = e.target
+        if (el.classList.contains("colorNumber")) {
+            const elemento = el.parentElement;
+            elemento.querySelector("input").addEventListener("input", (e) => {
+                elemento.querySelector("span").innerText = e.target.value;
+                display.style.backgroundColor = `rgb(${R.value}, ${G.value}, ${B.value})`
+            })
+        }
+    })
+
 })
 
 
 isTouchDevice()
 
 
-console.log(colorList)
+
 
 

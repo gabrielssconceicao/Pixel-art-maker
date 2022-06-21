@@ -16,7 +16,7 @@
             <div class="option-wrapper  option-values">
                 <div class="slider">
                     <label for="width-range">Width</label>
-                    <input type="range" name="width-range" id="width-range" min="0" max="50" value="0" >
+                    <input type="range" name="width-range" id="width-range" min="0" max="50" value="0">
                     <span class="width-value">0</span>
                 </div>
                 <div class="slider">
@@ -34,7 +34,7 @@
                 <button id="paint-btn">Paint</button>
             </div>
 
-            <div  class="color-chooser">
+            <div class="color-chooser">
                 <div class="color-list">
                     <div class="color" style="background-color: #f00;"></div>
                     <div class="color" style="background-color: #0f0;"></div>
@@ -43,7 +43,7 @@
                 </div>
                 <div id="add-color"><span>+</span></div>
             </div>
-            
+
         </div>
 
         <div class="grid"></div>
@@ -52,7 +52,29 @@
 
     <div class="add-new-color">
         <div class="color-selector">
-            
+            <div class="closer">X</div>
+            <div class="color-slider">
+                <div class="slider">
+                    <label for="R">R</label>
+                    <input type="range" name="color-range" id="R" min="0" max="255" value="0" class="colorNumber" value="0">
+                    <span class="color-value">0</span>
+                </div>
+
+                <div class="slider">
+                    <label for="G">G</label>
+                    <input type="range" name="color-range" id="G" min="0" max="255" value="0" class="colorNumber" value="0">
+                    <span class="color-value">0</span>
+                </div>
+
+                <div class="slider">
+                    <label for="B">B</label>
+                    <input type="range" name="color-range" id="B" min="0" max="255" value="0" class="colorNumber" value="0">
+                    <span class="color-value">0</span>
+                </div>
+
+                <button id="create-color">Adicionar cor</button>
+            </div>
+            <div class="display"></div>
         </div>
     </div>
 
