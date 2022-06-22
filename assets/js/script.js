@@ -9,7 +9,8 @@ const chooseColor = document.querySelector(".color-list")
 
 const addColor = document.querySelector('#add-color');
 let color;
-
+const createColor = document.querySelector("#create-color");
+   
 
 const btnCreate = document.querySelector("#create-grid");
 const btnClear = document.querySelector("#clear-grid");
@@ -150,7 +151,6 @@ addColor.addEventListener("click", () => {
         addNewColor.style.display = "none";
     });
 
-    const createColor = document.querySelector("#create-color");
     const display = document.querySelector(".display");
     const R = document.querySelector("#R");
     const G = document.querySelector("#G");
@@ -170,6 +170,15 @@ addColor.addEventListener("click", () => {
     })
 
 })
+
+createColor.addEventListener('click', ()=>{
+    const display = document.querySelector(".display");
+    const div = document.createElement("div");
+    div.classList.add("color");
+    div.style.backgroundColor = display.style.backgroundColor;
+    chooseColor.appendChild(div);
+})
+
 
 
 isTouchDevice()
