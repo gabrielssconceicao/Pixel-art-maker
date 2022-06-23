@@ -9,8 +9,7 @@ const chooseColor = document.querySelector(".color-list")
 
 const addColor = document.querySelector('#add-color');
 let color;
-const createColor = document.querySelector("#create-color");
-const colorList = document.querySelectorAll(".color");  
+const createColor = document.querySelector("#create-color");  
 
 const btnCreate = document.querySelector("#create-grid");
 const btnClear = document.querySelector("#clear-grid");
@@ -62,6 +61,7 @@ btnClear.addEventListener('click', () => {
 
 btnErase.addEventListener('click', (e) => {
     erase = true;
+    const colorList = document.querySelectorAll(".color");
     e.target.style.border = "1px solid #000";
     btnPaint.style.border = "none";
     colorList.forEach(el => el.classList.remove('selected'));
@@ -139,6 +139,7 @@ function checker(elementId) {
 }
 
 chooseColor.addEventListener('click', e => {
+    const colorList = document.querySelectorAll(".color");
     colorList.forEach(el => {
         el.classList.remove('selected');
     })
