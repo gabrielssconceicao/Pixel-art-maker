@@ -10,7 +10,7 @@ const chooseColor = document.querySelector(".color-list")
 const addColor = document.querySelector('#add-color');
 let color;
 const createColor = document.querySelector("#create-color");
-   
+const colorList = document.querySelectorAll(".color");  
 
 const btnCreate = document.querySelector("#create-grid");
 const btnClear = document.querySelector("#clear-grid");
@@ -60,12 +60,17 @@ btnClear.addEventListener('click', () => {
 })
 
 
-btnErase.addEventListener('click', () => {
-    erase = true
+btnErase.addEventListener('click', (e) => {
+    erase = true;
+    e.target.style.border = "1px solid #000";
+    btnPaint.style.border = "none";
+    colorList.forEach(el => el.classList.remove('selected'));
 });
 
-btnPaint.addEventListener('click', () => {
+btnPaint.addEventListener('click', (e) => {
     erase = false;
+    e.target.style.border = "1px solid #000";
+    btnErase.style.border = "none";
 })
 
 
@@ -134,8 +139,9 @@ function checker(elementId) {
 }
 
 chooseColor.addEventListener('click', e => {
-    const colorList = document.querySelectorAll(".color");
-    colorList.forEach(el => el.classList.remove('selected'))
+    colorList.forEach(el => {
+        el.classList.remove('selected');
+    })
     const choosedColor = e.target;
     if (choosedColor.classList.contains('color')) {
         e.target.classList.add('selected')
@@ -158,7 +164,7 @@ addColor.addEventListener("click", () => {
 
 
     const colorSlider = document.querySelector(".color-slider");
-    colorSlider.addEventListener("mouseover", e => {
+    colorSlider.addEventListener(events[deviceType].down, e => {
         const el = e.target
         if (el.classList.contains("colorNumber")) {
             const elemento = el.parentElement;
@@ -177,6 +183,7 @@ createColor.addEventListener('click', ()=>{
     div.classList.add("color");
     div.style.backgroundColor = display.style.backgroundColor;
     chooseColor.appendChild(div);
+    document.querySelector(".add-new-color").style.display = "none";
 })
 
 
